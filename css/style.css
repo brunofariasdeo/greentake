@@ -18,7 +18,7 @@ body, html{
 }
 
 header{
-    background:#252239;
+    background:#2a462e;
     padding-top: 10px;
     padding-bottom: 10px;
     position:relative;
@@ -273,4 +273,9 @@ footer{
 
 .dourado{
     color:  #E1B370;
+}
+
+.swiper-container {
+    width: 600px;
+    height: 300px;
 }
