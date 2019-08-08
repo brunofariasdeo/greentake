@@ -1,82 +1,106 @@
-body, html{
-    height: 100%;
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
+}
+
+body, html{
     background-color:white;
     font-family: "Roboto", sans-serif;
     font-weight: 100;
-    position:relative;
 }
 
-* {
-    box-sizing: border-box;
-  }
-
-.container{
-    width: 80%;
-    margin: 0 auto;
-}
-
-header{
-    background:#2a462e;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    position:relative;
-}
-
-header::after{
-    content: '';
-    display: table;
-    clear: both;
-}
-
-.logo{
-    float: left;
-}
-
-@media screen and (max-width: 600px) {
-.logo{
-    float: none;
-    margin:2%;
-    display: inline-block;
+nav{
+    padding: 10px 0 10px 0;
+    display: flex;
+    justify-content: space-around;
     align-items: center;
-}
+    min-height: 8vh;
+    background-color: rgb(73, 107, 73);
 }
 
-.nomeLogo {
+.nav-links{
+    display:flex;
+    justify-content: space-around;
+    width: 40%;
     color: white;
-    text-decoration: none;
+}
+
+.nav-links li{
     list-style: none;
-    float:right;
+    color: white;
+}
+
+.nav-links a{
+    color:white;
+    text-decoration: none;
+    letter-spacing: 2px;
     font-weight: bold;
 }
 
-nav{
-    float:right;
-}
-
-@media screen and (max-width: 600px) {
-nav{
-    display:none;
-    float:right;
-}
-}
-
-nav ul{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-nav li{
-    display: inline-block;
-    margin-left: 80px;
-    padding-top: 20px;
-}
-
-nav a {
+.nomeLogo{
     color: white;
-    text-decoration: none;
+    text-transform: lowercase;
+    font-size: 22px;
+}
+
+.burger{
+    display:none;
+    cursor: pointer;
+}
+
+.burger div{
+    width: 25px;
+    height: 3px;
+    margin: 5px;
+    background-color:white;
+}
+
+@media screen and (max-width: 1024px){
+    .nav-links{
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    body{
+        overflow-x: hidden;
+    }
+    .nav-links{
+        position:absolute;
+        right: 0px;
+        height: 92vh;
+        top: 8vh;
+        background-color: rgb(73, 107, 73);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50%;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+    .nav-links li{
+        opacity: 0;
+    }
+    .burger{
+        display:block;
+    }
+
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
 }
 
 main {
@@ -87,13 +111,22 @@ main {
     padding-bottom: 100px; 
 }
 
+.carousel {
+    height: 100vh;
+    width: 100%;
+}
+
+.carousel-img{
+    
+}
+
 footer{
     width: 100%;
-    background-color: #252239;
+    background-color: rgb(73, 107, 73);
     height: 4rem;
     clear: both;
     left: 0px;
-    position: absolute;
+    /* position: relative; */
 }
 
 @media screen and (max-width: 600px) {
@@ -128,154 +161,4 @@ footer{
     margin-left: 10px;
     margin-right: 20px;
     padding-top: 15px;
-}
-
-.diagnostico-div{
-    margin:0px;
-    height: 35rem;
-    max-width:100%;
-    display: relative;
-    background-image: url('../images/background.png');
-    filter: brightness(85%);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: relative;
-    background-blend-mode: darken;
-}
-
-.diagnostico-div h1{
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    filter: brightness(100%);
-    padding-top: 15%;
-    color: white;
-    font-size: 3rem;
-    margin-top: 0;
-}
-
-.diagnostico-div p{
-    text-align: center;
-    color: white;
-    filter: brightness(100%);
-    font-size: 1rem;
-    padding-left: 35%;
-    padding-right: 35%;
-}
-
-@media screen and (max-width: 600px) {
-.diagnostico-div p{
-    padding: 10%;
-}
-}
-
-.diagnostico-botao {
-    width: 180px;
-    height: 45px;
-    background-color: #252239;
-    color: white;
-    font-size: 1rem;
-    border-radius: 50px;
-    margin: 0 auto;
-    margin-top: 50px;
-    cursor: pointer;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    display: flex;
-}
-
-.etapas-div h1{
-    text-align: center;
-    padding-top: 5%;
-    font-size: 1.5rem;
-}
-
-.etapas-div p{
-    margin-top: 0;
-    text-decoration: underline;
-    text-underline-position: under;
-}
-
-.etapas-boxes { 
-    width: 100%; 
-    padding-top: 80px; 
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    flex-direction: row;
-}
-
-@media screen and (max-width: 600px) {
-.etapas-boxes{
-    flex-direction: column;
-}
-}
-
-@media screen and (max-width: 600px) {
-.etapas-box2, .etapas-box3{
-    margin-top: 20px;
-}
-}
-
-.etapas-box1, .etapas-box2, .etapas-box3 { 
-    width:250px; 
-    height:350px;
-    border: 1px solid #252239;
-    box-shadow:0 3px 6px rgba(0,0,0,0.2);
-    border-radius: 5px;
-    border-style: solid; 
-    border-color: rgb(103, 184, 211);
-    text-align: center;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-around;
-    position: relative;
-}
-
-.etapas-box1-number, .etapas-box2-number, .etapas-box3-number {
-    align-items: center;
-    text-align: center;
-    vertical-align: center;
-    position: absolute;
-    color: #91A3B0;
-    background-color:white;
-    font-size: 7rem;
-    margin-top: -1rem;
-    padding-left: 20%; 
-    display: flex;
-    z-index: 0;
-    font-weight: bold;
-}
-
-.etapas-box1-title, .etapas-box2-title, .etapas-box3-title {
-    text-align: right;
-    color:black;
-    position: absolute;
-    background: rgb(255, 255, 255, 0,9);
-    font-size: 1.5rem;
-    z-index: 1;
-    padding-left: 20%;  
-    padding-right: 20%;
-    padding-top: 10%;
-    vertical-align: center;
-    font-weight: bold;
-    max-width: 50%;
-}
-
-.etapas-box1-text, .etapas-box2-text, .etapas-box3-text {
-    flex-direction: column; 
-    margin: 20px;
-    text-align: left;
-    font-size: 0.9rem;
-    color: #91A3B0;
-}
-
-.dourado{
-    color:  #E1B370;
-}
-
-.swiper-container {
-    width: 600px;
-    height: 300px;
 }
