@@ -17,6 +17,36 @@ const navSlide = () => {
     });
 }
 
+function myMap() {
+    var mapCenter = {lat: -8.063128, lng: -34.871162};
+    
+    var mapProperties= { //defines the properties for the map.
+      center:new google.maps.LatLng(mapCenter), //specifies where to center the map (using latitude and longitude coordinates).
+      zoom:15 //specifies the zoom level for the map (try to experiment with the zoom level).
+    };
+    
+    var map = new google.maps.Map(document.getElementById("googleMap"),mapProperties);
+    
+    var sympleBinMarker = new google.maps.Marker({
+        position: mapCenter, 
+        map: map,
+        icon: 'images/symple-bin.png'
+    });
+
+    var recycleBinMarker = new google.maps.Marker({
+        position: mapCenter, 
+        map: map,
+        icon: 'images/recycle-bin.png'
+    });
+
+    var allRecycleBinMarker = new google.maps.Marker({
+        position: mapCenter, 
+        map: map,
+        icon: 'images/all-recycle-bin.png'
+    });
+    
+}
+
 
 // $('.carousel').slick({
 //     dots: true,
@@ -28,3 +58,4 @@ const navSlide = () => {
 
 
 navSlide();
+myMap();
