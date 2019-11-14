@@ -20,38 +20,42 @@ const navSlide = () => {
 }
 
 function myMap() {
-    var mapCenter = {lat: -8.063128, lng: -34.871162};
-    var firstPoint = {lat: -8.063646, lng: -34.871743};
-    var secondPoint = {lat: -8.063930, lng: -34.871686};
-    var thirdPoint = {lat: -8.063273, lng: -34.871766};
+    let mapCenter = {lat: -8.063128, lng: -34.871162};
+    let mapPoints = [{lat: -8.063646, lng: -34.871743},{lat: -8.063930, lng: -34.871686},{lat: -8.063273, lng: -34.871766}, {lat: -8.064438, lng:-34.871983}];
 
-    var mapProperties= { //defines the properties for the map.
+    let mapProperties= { //defines the properties for the map.
       center:new google.maps.LatLng(mapCenter), //specifies where to center the map (using latitude and longitude coordinates).
-      zoom:15 //specifies the zoom level for the map (try to experiment with the zoom level).
+      zoom:18 //specifies the zoom level for the map (try to experiment with the zoom level).
     };
     
-    var map = new google.maps.Map(document.getElementById("googleMap"),mapProperties);
-    
-    var sympleBinMarker = new google.maps.Marker({
-        position: firstPoint, 
-        map: map,
-        icon: 'images/symple-bin.png'
-    });
+    let map = new google.maps.Map(document.getElementById("googleMap"),mapProperties);
 
-    var recycleBinMarker = new google.maps.Marker({
-        position: secondPoint, 
-        map: map,
-        icon: 'images/recycle-bin.png'
-    });
-
-    var allRecycleBinMarker = new google.maps.Marker({
-        position: thirdPoint, 
-        map: map,
-        icon: 'images/all-recycle-bin.png'
-    });
+    for (let i=0;i<mapPoints.length;i++){
+        if ((mapPoints.indexOf(mapPoints[i])%2) === 0){
+            var sympleBinMarker = new google.maps.Marker({
+                position: mapPoints[i], 
+                map: map,
+                icon: 'images/symple-bin.png'
+            });
+        }
+        else if ((mapPoints.indexOf(mapPoints[i])%3) === 0){
+            var recycleBinMarker = new google.maps.Marker({
+                position: mapPoints[i], 
+                map: map,
+                icon: 'images/recycle-bin.png'
+            });
+        }
+        else {
+            var allRecycleBinMarker = new google.maps.Marker({
+                position: mapPoints[i], 
+                map: map,
+                icon: 'images/all-recycle-bin.png'
+            });
+        }
+    }
     
-    var directionsDisplay = new google.maps.direc
-    var directionsService = new google.maps.directionsService();
+    let directionsDisplay = new google.maps.direc
+    let directionsService = new google.maps.directionsService();
 }
 
 $('.carousel').slick({

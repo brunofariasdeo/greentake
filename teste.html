@@ -50,37 +50,32 @@
         height: 174px;
       }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <div id="map"></div>
     <div id="right-panel">
     <div>
     <b>Início:</b>
     <select id="start">
-      <option value="Halifax, NS">Halifax, NS</option>
-      <option value="Boston, MA">Boston, MA</option>
-      <option value="New York, NY">New York, NY</option>
-      <option value="Miami, FL">Miami, FL</option>
+        <option value="Recife, PE">Recife, PE</option>
+        <option value="Jaboatão, PE">Jaboatão, PE</option>
+        <option value="Olinda, PE">Olinda, PE</option>
+        <option value="Tejipió, PE">Tejipió, PE</option>
     </select>
     <br>
-    <b>Waypoints:</b> <br>
-    <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
+    <b>Paradas:</b> <br>
     <select multiple id="waypoints">
-      <option value="montreal, quebec">Montreal, QBC</option>
-      <option value="toronto, ont">Toronto, ONT</option>
-      <option value="chicago, il">Chicago</option>
-      <option value="winnipeg, mb">Winnipeg</option>
-      <option value="fargo, nd">Fargo</option>
-      <option value="calgary, ab">Calgary</option>
-      <option value="spokane, wa">Spokane</option>
+        <option value="Espinheiro, PE">Espinheiro, PE</option>
+        <option value="Arruda, PE">Arruda, PE</option>
+        <option value="Barro, PE">Barro, PE</option>
+        <option value="Abreu e Lima, PE">Abreu e Lima, PE</option>
     </select>
     <br>
-    <b>End:</b>
+    <b>Destino:</b>
     <select id="end">
-      <option value="Vancouver, BC">Vancouver, BC</option>
-      <option value="Seattle, WA">Seattle, WA</option>
-      <option value="San Francisco, CA">San Francisco, CA</option>
-      <option value="Los Angeles, CA">Los Angeles, CA</option>
+      <option value="Caruaru, PE">Caruaru, PE</option>
+      <option value="Várzea, PE">Várzea, PE</option>
+      <option value="Aldeia, PE">Aldeia, PE</option>
     </select>
     <br>
       <input type="submit" id="submit">
@@ -129,9 +124,9 @@
             // For each route, display summary information.
             for (var i = 0; i < route.legs.length; i++) {
               var routeSegment = i + 1;
-              summaryPanel.innerHTML += '<b>Route Segment: ' + routeSegment +
+              summaryPanel.innerHTML += '<b>Rota: ' + routeSegment +
                   '</b><br>';
-              summaryPanel.innerHTML += route.legs[i].start_address + ' to ';
+              summaryPanel.innerHTML += route.legs[i].start_address + ' para ';
               summaryPanel.innerHTML += route.legs[i].end_address + '<br>';
               summaryPanel.innerHTML += route.legs[i].distance.text + '<br><br>';
             }
